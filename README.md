@@ -13,7 +13,11 @@ pip install -r requirements.txt
 ```
 
 ### 2️⃣ Configure Servers
-Edit `servers.yaml` to define your servers:
+Copy the example configuration file and edit your server details:
+```bash
+cp servers.example.yaml servers.yaml
+```
+Then edit `servers.yaml` to define your servers:
 
 ```yaml
 servers:
@@ -32,7 +36,9 @@ chmod +x servers/*.sh
 Example `server1.sh`:
 ```bash
 #!/bin/bash
-screen -dmS server1 bash -c "java -Xmx2G -Xms2G -jar minecraft_server.jar nogui >> logs/server1.log 2>&1"
+path_to_jar="/PATH_TO_JAR_FILE/server.jar"
+mkdir -p logs
+screen -dmS survival_v2 bash -c "java -Xmx4096m -jar $path_to_jar nogui >> logs/server1.log 2>&1"
 ```
 
 ### 4️⃣ Create Log Directory
