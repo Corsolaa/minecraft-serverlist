@@ -1,0 +1,5 @@
+servers:
+  server1:
+    path: "./servers/server1.sh"
+  server2:
+    path: "./servers/server2.sh"
