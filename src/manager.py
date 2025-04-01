@@ -1,7 +1,7 @@
 import subprocess
 import yaml
 
-CONFIG_PATH = "config/servers.yaml"
+CONFIG_PATH = "servers.yaml"
 
 
 class ServerManager:
