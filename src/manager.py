@@ -23,7 +23,7 @@ class ServerManager:
             if not os.path.exists(log_file):
                 open(log_file, 'w').close()
 
-            with open(log_file, 'a') as log:
+            with open(log_file, 'a'):
                 subprocess.Popen(["bash", script_path], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
             print(f"\n✅ {server_name} started.")
@@ -39,6 +39,7 @@ class ServerManager:
             stop_message = "ThreadedAnvilChunkStorage: All dimensions are saved"
 
             while True:
+                # TODO add a thing that checks the first 5 lines, not the entire file.
                 with open(log_file, 'r') as log:
                     log_content = log.readlines()
                     if any(stop_message in line for line in log_content):
