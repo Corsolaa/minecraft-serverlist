@@ -5,11 +5,11 @@ def main():
 
     while True:
         print("\n🎮 Minecraft Server Manager 🎮")
-        print("1️⃣ List Servers")
-        print("2️⃣ Start Server")
-        print("3️⃣ Stop Server")
-        print("4️⃣ Restart Server")
-        print("5️⃣ Exit")
+        print("1️⃣  List Servers")
+        print("2️⃣  Start Server")
+        print("3️⃣  Stop Server")
+        print("4️⃣  Restart Server")
+        print("5️⃣  Exit")
 
         choice = input("Enter choice: ")
 
@@ -25,7 +25,7 @@ def main():
             server = input("Enter server name: ")
             manager.restart_server(server)
         elif choice == "5":
-            print("👋 Exiting...")
+            print("\n👋 Exiting...\n")
             break
         else:
             print("❌ Invalid option, try again.")

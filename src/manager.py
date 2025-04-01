@@ -16,16 +16,16 @@ class ServerManager:
         if server_name in self.servers:
             script_path = self.servers[server_name]["path"]
             subprocess.Popen(["bash", script_path], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-            print(f"✅ {server_name} started.")
+            print(f"\n✅ {server_name} started.")
         else:
-            print(f"❌ Server '{server_name}' not found.")
+            print(f"\n❌ Server '{server_name}' not found.")
 
     def stop_server(self, server_name):
         if self.is_running(server_name):
             subprocess.run(["screen", "-S", server_name, "-X", "quit"])
             print(f"🛑 {server_name} stopped.")
         else:
-            print(f"⚠️ {server_name} is not running.")
+            print(f"⚠️  {server_name} is not running.")
 
     def restart_server(self, server_name):
         self.stop_server(server_name)
@@ -37,10 +37,10 @@ class ServerManager:
         return server_name in result.stdout
 
     def list_servers(self):
-        print("📋 Server List:")
+        print("\n📋 Server List:")
         for server in self.servers.keys():
             status = "🟢 Running" if self.is_running(server) else "🔴 Stopped"
-            print(f" - {server}: {status}")
+            print(f" - {status}: {server}")
 
 
 if __name__ == "__main__":
