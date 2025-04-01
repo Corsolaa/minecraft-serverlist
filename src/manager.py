@@ -19,14 +19,12 @@ class ServerManager:
         if server_name in self.servers:
             script_path = self.servers[server_name]["path"]
 
-            # Create the log file when the server starts
             log_file = f"logs/{server_name}.log"
             if not os.path.exists(log_file):
-                open(log_file, 'w').close()  # Create an empty log file if it doesn't exist
+                open(log_file, 'w').close()
 
-            # Start the server and redirect stdout and stderr to the log file
             with open(log_file, 'a') as log:
-                subprocess.Popen(["bash", script_path], stdout=log, stderr=log)
+                subprocess.Popen(["bash", script_path], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
             print(f"\n✅ {server_name} started.")
         else:
