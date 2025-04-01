@@ -28,7 +28,7 @@ def main():
             print("\n👋 Exiting...\n")
             break
         else:
-            print("❌ Invalid option, try again.")
+            print("\n❌ Invalid option, try again.")
 
 if __name__ == "__main__":
     main()

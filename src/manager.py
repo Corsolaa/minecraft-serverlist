@@ -35,7 +35,7 @@ class ServerManager:
     def stop_server(self, server_name):
         if self.is_running(server_name):
             subprocess.run(["screen", "-S", server_name, "-X", "stuff", "stop\n"])
-            print(f"🛑 {server_name} is stopping. Please wait...")
+            print(f"\n🛑 {server_name} is stopping. Please wait...")
 
             log_file = f"logs/{server_name}.log"
             stop_message = "ThreadedAnvilChunkStorage: All dimensions are saved"
@@ -46,7 +46,7 @@ class ServerManager:
                     if any(stop_message in line for line in log_content):
                         print(f"✅ {server_name} has stopped gracefully.")
                         break
-                time.sleep(2)
+                time.sleep(.5)
 
             subprocess.run(["screen", "-S", server_name, "-X", "quit"])
             print(f"✅ {server_name} session terminated.")
